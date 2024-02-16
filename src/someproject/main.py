@@ -17,11 +17,7 @@ def main():
     if args.uselog:
         logging.basicConfig(level=logging.INFO)
 
-    print_message(args.uselog, "##teamcity[inspectionType id='id' name='name' category='Medium Severity' description='description']")
-    print_message(args.uselog, "##teamcity[inspection typeId='id' message='message 1' file='filename.c' line='1' SEVERITY='Medium Severity']")
-    print_message(args.uselog, "##teamcity[inspection typeId='id' message='message 2' file='filename.c' line='2' SEVERITY='Medium Severity']")
-    print_message(args.uselog, "##teamcity[inspection typeId='id' message='message 3' file='filename.c' line='3' SEVERITY='Medium Severity']")
-
+    print_message(args.uselog, "##teamcity[message text='Exception text' errorDetails='stack trace' status='ERROR']")
 
 if __name__ == '__main__':
     main()
