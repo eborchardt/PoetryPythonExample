@@ -7,7 +7,7 @@ RUN powershell -Command \
     Invoke-WebRequest -Uri "https://www.python.org/ftp/python/3.9.0/python-3.9.0-amd64.exe" -OutFile C:\python-3.9.0-amd64.exe ; \
     Start-Process -Wait -FilePath C:\python-3.9.0-amd64.exe -ArgumentList '/quiet InstallAllUsers=1 PrependPath=1' ; \
     Remove-Item C:\python-3.9.0-amd64.exe -Force ; \
-    $env:Path = 'C:\Python39;C:\Python39\Scripts;' + $env:Path ; \
+    $env:Path = 'C:\Program Files\Python39;C:\Program Files\Python39\Scripts;' + $env:Path ; \
     python --version ; \
     pip --version ; \
     Invoke-WebRequest -Uri "https://bootstrap.pypa.io/get-pip.py" -OutFile "C:\get-pip.py" -UseBasicParsing ; \
@@ -16,7 +16,7 @@ RUN powershell -Command \
     pip install poetry
 
 # Set environment variables
-ENV PATH="C:\Python39;C:\Python39\Scripts:$PATH"
+ENV PATH="C:\Program Files\Python39;C:\Program Files\Python39\Scripts:$PATH"
 
 # Set up virtual environment
 RUN python -m venv C:\venv
