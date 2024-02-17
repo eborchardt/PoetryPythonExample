@@ -16,14 +16,16 @@ RUN powershell -Command \
     pip install poetry
 
 # Set environment variables
-ENV PATH="C:\Program Files\Python39;C:\Program Files\Python39\Scripts:$PATH"
+ENV PATH="C:\Program Files\Python39;C:\Program Files\Python39\Scripts;%PATH%"
 
 # Set up virtual environment
 RUN python -m venv C:\venv
 
 # Install any additional dependencies
 RUN C:\venv\Scripts\activate && \
-    pip install --upgrade pip setuptools
+    pip install --upgrade pip && \
+    pip install --upgrade setuptools
+    pip install --upgrade poetry
 
 # Print versions
 RUN python --version && \
