@@ -1,5 +1,5 @@
 # Use the latest windows base image
-FROM mcr.microsoft.com/windows/servercore:ltsc2019
+FROM mcr.microsoft.com/windows/servercore:ltsc2022
 
 # Install Python and other dependencies
 RUN powershell -Command \
