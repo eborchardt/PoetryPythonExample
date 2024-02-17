@@ -24,7 +24,7 @@ RUN python -m venv C:\venv
 # Install any additional dependencies
 RUN C:\venv\Scripts\activate && \
     pip install --upgrade pip && \
-    pip install --upgrade setuptools
+    pip install --upgrade setuptools && \
     pip install --upgrade poetry
 
 # Print versions
