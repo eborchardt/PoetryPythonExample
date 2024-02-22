@@ -4,9 +4,9 @@ FROM mcr.microsoft.com/windows/servercore:ltsc2022
 # Install Python and other dependencies
 RUN powershell -Command \
     $ErrorActionPreference = 'Stop'; \
-    Invoke-WebRequest -Uri "https://www.python.org/ftp/python/3.9.0/python-3.9.0-amd64.exe" -OutFile C:\python-3.9.0-amd64.exe ; \
-    Start-Process -Wait -FilePath C:\python-3.9.0-amd64.exe -ArgumentList '/quiet InstallAllUsers=1 PrependPath=1' ; \
-    Remove-Item C:\python-3.9.0-amd64.exe -Force ; \
+    Invoke-WebRequest -Uri 'https://www.python.org/ftp/python/3.12.2/python-3.12.2-amd64.exe' -OutFile python_installer.exe; \
+    Start-Process -FilePath 'python_installer.exe' -ArgumentList '/quiet InstallAllUsers=1 Include_test=0 PrependPath=1' -NoNewWindow -Wait; \
+    Remove-Item -Path python_installer.exe -Force; \
     $env:Path = 'C:\Program Files\Python39;C:\Program Files\Python39\Scripts;' + $env:Path ; \
     python --version ; \
     pip --version ; \
