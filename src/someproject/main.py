@@ -2,13 +2,13 @@ from teamcity.messages import TeamcityServiceMessages
 
 def send_inspection_messages():
     # Send inspection type message
-    inspection_type_message = "inspectionType id='id' name='name' category='Medium Severity' description='description'"
-    TeamcityServiceMessages().message(inspection_type_message)
+    TeamcityServiceMessages().message("inspectionType id='id' name='name' category='Medium Severity' description='description'")
 
     # Send inspection messages
-    for i in range(1, 4):
-        inspection_message = f"inspection typeId='id' message='message {i}' file='filename.c' line='{i}' SEVERITY='Medium Severity'"
-        TeamcityServiceMessages().message(inspection_message)
+    TeamcityServiceMessages().message("inspection typeId='id' message='message 1' file='filename.c' line='1' SEVERITY='Medium Severity'")
+    TeamcityServiceMessages().message("inspection typeId='id' message='message 2' file='filename.c' line='2' SEVERITY='Medium Severity'")
+    TeamcityServiceMessages().message("inspection typeId='id' message='message 3' file='filename.c' line='3' SEVERITY='Medium Severity'")
+    TeamcityServiceMessages().message("inspection typeId='id' message='message 4' file='filename.c' line='4' SEVERITY='Medium Severity'")
 
 if __name__ == "__main__":
     send_inspection_messages()
