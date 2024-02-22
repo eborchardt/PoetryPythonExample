@@ -16,7 +16,8 @@ RUN powershell -Command \
     pip install poetry
 
 # Set environment variables
-ENV PATH="C:\Program Files\Python39;C:\Program Files\Python39\Scripts;%PATH%"
+RUN setx path "C:\Program Files\Python39;C:\Program Files\Python39\Scripts;%path%"
+#ENV PATH="C:\Program Files\Python39;C:\Program Files\Python39\Scripts;%PATH%"
 
 # Set up virtual environment
 RUN python -m venv C:\venv
