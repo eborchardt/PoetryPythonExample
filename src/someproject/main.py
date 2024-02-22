@@ -8,7 +8,6 @@ def send_inspection_messages():
     TeamcityServiceMessages().message("inspection typeId='id' message='message 1' file='filename.c' line='1' SEVERITY='Medium Severity'")
     TeamcityServiceMessages().message("inspection typeId='id' message='message 2' file='filename.c' line='2' SEVERITY='Medium Severity'")
     TeamcityServiceMessages().message("inspection typeId='id' message='message 3' file='filename.c' line='3' SEVERITY='Medium Severity'")
-    TeamcityServiceMessages().message("inspection typeId='id' message='message 4' file='filename.c' line='4' SEVERITY='Medium Severity'")
 
 if __name__ == "__main__":
     send_inspection_messages()
