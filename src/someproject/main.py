@@ -1,27 +1,14 @@
-import argparse
-import logging
+from teamcity.messages import TeamcityServiceMessages
 
+def send_inspection_messages():
+    # Send inspection type message
+    inspection_type_message = "##teamcity[inspectionType id='id' name='name' category='Medium Severity' description='description']"
+    TeamcityServiceMessages().message(inspection_type_message)
 
-def print_message(use_log, message):
-    if use_log:
-        logging.getLogger(__name__).info(message)
-    else:
-        print(message)
+    # Send inspection messages
+    for i in range(1, 4):
+        inspection_message = f"##teamcity[inspection typeId='id' message='message {i}' file='filename.c' line='{i}' SEVERITY='Medium Severity']"
+        TeamcityServiceMessages().message(inspection_message)
 
-
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--uselog", action="store_true")
-    args = parser.parse_args()
-
-    if args.uselog:
-        logging.basicConfig(level=logging.INFO)
-
-    print_message(args.uselog, "##teamcity[inspectionType id='id' name='name' category='Medium Severity' description='description']")
-    print_message(args.uselog, "##teamcity[inspection typeId='id' message='message 1' file='filename.c' line='1' SEVERITY='Medium Severity']")
-    print_message(args.uselog, "##teamcity[inspection typeId='id' message='message 2' file='filename.c' line='2' SEVERITY='Medium Severity']")
-    print_message(args.uselog, "##teamcity[inspection typeId='id' message='message 3' file='filename.c' line='3' SEVERITY='Medium Severity']")
-
-
-if __name__ == '__main__':
-    main()
+if __name__ == "__main__":
+    send_inspection_messages()
