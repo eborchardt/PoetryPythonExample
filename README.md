@@ -1,3 +1,4 @@
+![TeamCity build status](https://support-team.teamcity.com/app/rest/builds/buildType:id:Eborchardt_ServiceMessageInspections,branch:name:main/statusIcon.svg)
 # A Very Basic Poetry Example
 This project contains a script, main.py, which will send a TeamCity service message. There is an unused dependency on requests, which I was using only for environment verification in a test.<br>
 <br>
