@@ -1,4 +1,4 @@
-# A very basic Poetry example
+# A Very Basic Poetry Example
 This project contains a script, main.py, which will send a TeamCity service message. There is an unused dependency on requests, which I was using only for environment verification in a test.<br>
 <br>
 You will need to have the following installed on your operating system:<br>
